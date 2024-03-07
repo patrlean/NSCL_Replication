@@ -37,7 +37,7 @@ parser.add_argument('-n', '--nr-vis', type=int, help='number of visualized quest
 parser.add_argument('--random', type='bool', default=False, help='random choose the questions')
 args = parser.parse_args()
 
-args.data_image_root = osp.join(args.data_dir, 'images')
+args.data_image_root = osp.join(args.data_dir, 'images/train')
 args.data_vis_dir = osp.join(args.data_outputdir, 'visualize')
 if args.data_scenes_json is None:
     args.data_scenes_json = osp.join(args.data_dir, 'scenes.json')
