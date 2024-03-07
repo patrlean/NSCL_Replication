@@ -14,7 +14,7 @@ from PIL import Image
 import matplotlib; matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
-import jacinle.random as random
+import Jacinle.jacinle.random as random
 from jacinle.cli.argument import JacArgumentParser
 from jacinle.logging import get_logger
 from jacinle.utils.container import GView
@@ -28,6 +28,8 @@ logger = get_logger(__file__)
 parser = JacArgumentParser()
 parser.add_argument('--dataset', required=True, choices=get_available_symbolic_datasets(), help='dataset')
 parser.add_argument('--data-dir', required=True)
+# 增加指定输出文件夹的代码
+parser.add_argument('--data-outputdir',required=True)
 parser.add_argument('--data-scenes-json', type='checked_file')
 parser.add_argument('--data-questions-json', type='checked_file')
 parser.add_argument('--data-vocab-json', type='checked_file')
@@ -36,7 +38,7 @@ parser.add_argument('--random', type='bool', default=False, help='random choose 
 args = parser.parse_args()
 
 args.data_image_root = osp.join(args.data_dir, 'images')
-args.data_vis_dir = osp.join(args.data_dir, 'visualize')
+args.data_vis_dir = osp.join(args.data_outputdir, 'visualize')
 if args.data_scenes_json is None:
     args.data_scenes_json = osp.join(args.data_dir, 'scenes.json')
 if args.data_questions_json is None:
