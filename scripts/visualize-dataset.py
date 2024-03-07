@@ -14,7 +14,7 @@ from PIL import Image
 import matplotlib; matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
-import Jacinle.jacinle.random as random
+import jacinle.random as random
 from jacinle.cli.argument import JacArgumentParser
 from jacinle.logging import get_logger
 from jacinle.utils.container import GView
